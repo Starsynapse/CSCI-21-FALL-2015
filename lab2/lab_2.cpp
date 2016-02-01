@@ -83,3 +83,18 @@ double LaunchHumanCannonball(double initial_velocity, double launch_angle) {
   // (6) Return horizontal/x distance
   return x_distance;
 }
+
+/*
+int main(){
+ +  double initial_value;
+ +  cin >> initial_value;
+ +  int q = 0, d = 0, n = 0, p = 0;
+ +  MakeChange (initial_value, q, d, n, p);
+ +  
+    double i_v, l_a;
+    cin >> i_v;
+    cin >> l_a;
+    double distance = LaunchHumanCannonball(i_v, l_a);
+    cout << distance;
+ +  return 0;
+  } */

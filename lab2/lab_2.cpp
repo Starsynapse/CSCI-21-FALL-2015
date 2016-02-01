@@ -30,29 +30,21 @@ void MakeChange(int initial_value, int &quarters, int &dimes, int &nickels,
   while (initial_value >= 25){
     initial_value = initial_value - 25;
     quarters = quarters + 1;
-    cout << "initial value =" << initial_value << endl;
-    cout << "quarters =" << quarters << endl;
   }
   
   while (initial_value >= 10){
     initial_value = initial_value - 10;
     dimes = dimes + 1;
-    cout << "initial_value = " << initial_value << endl;
-    cout << "dimes = " << dimes << endl;
   }
   
   while (initial_value >= 5){
     initial_value = initial_value - 5;
     nickels = nickels + 1;
-    cout << "initial_value = " << initial_value << endl;
-    cout << "nickels = " << nickels << endl;
   }
   
   while (initial_value >= 1){
     initial_value = initial_value - 1;
     pennies = pennies + 1;
-    cout << "initial_value = " << initial_value << endl;
-    cout << "pennies = " << pennies << endl;
   }
 }
 
@@ -90,18 +82,4 @@ double LaunchHumanCannonball(double initial_velocity, double launch_angle) {
 
   // (6) Return horizontal/x distance
   return x_distance;
-}
-
-int main(){
-  double initial_value;
-  cin >> initial_value;
-  int q = 0, d = 0, n = 0, p = 0;
-  MakeChange (initial_value, q, d, n, p);
-  
-  double i_v, l_a;
-  cin >> i_v;
-  cin >> l_a;
-  double distance = LaunchHumanCannonball(i_v, l_a);
-  cout << distance;
-  return 0;
 }

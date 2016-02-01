@@ -3,7 +3,7 @@
  * Author      : Eduardo Zamora
  * Description : Using Arithmetic to finish the functions MakeChange() and
  *               LaunchHumanCannonball()
- * Sources     :
+ * Sources     :Edited from instructor April's code
  */
 
 #ifndef LAB_H

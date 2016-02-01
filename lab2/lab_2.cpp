@@ -29,40 +29,23 @@ void MakeChange(int initial_value, int &quarters, int &dimes, int &nickels,
   
   while (initial_value >= 25){
     initial_value = initial_value - 25;
-    cout << "initial value =" << initial_value << endl;
     quarters = quarters + 1;
-    cout << "quarters =" << quarters << endl;
   }
   
   while (initial_value >= 10){
     initial_value = initial_value - 10;
     dimes = dimes + 1;
-    cout << "initial_value = " << initial_value << endl;
-    cout << "dimes = " << dimes << endl;
   }
   
   while (initial_value >= 5){
     initial_value = initial_value - 5;
     nickels = nickels + 1;
-    cout << "initial_value = " << initial_value << endl;
-    cout << "nickels = " << nickels << endl;
   }
   
   while (initial_value >= 1){
     initial_value = initial_value - 1;
     pennies = pennies + 1;
-    cout << "initial_value = " << initial_value << endl;
-    cout << "pennies = " << pennies << endl;
   }
-}
-
-int main()
-{
-  double initial_value;
-  cin >> initial_value;
-  int q = 0, d = 0, n = 0, p = 0;
-  MakeChange (initial_value, q, d, n, p);
-  return 0;
 }
 
 /*
@@ -79,24 +62,32 @@ int main()
 double LaunchHumanCannonball(double initial_velocity, double launch_angle) {
   // (1) Convert launch_angle from degrees to radians
   //     [radian_angle = launch_angle * (kPI/180)]
-  // CODE HERE
+  double radian_angle = launch_angle * (kPI/180);
 
   // (2) Compute final horizontal/x velocity
   //     [x_velocity = initial_velocity * cos(radian_angle)]
-  // CODE HERE
+  double x_velocity = initial_velocity * cos(radian_angle);
 
   // (3) Compute final vertical/y velocity
   //     [y_velocity = initial_velocity * sin(radian_angle) * -1]
-  // CODE HERE
+  double y_velocity = initial_velocity * sin(radian_angle) * -1;
 
   // (4) Compute time of flight
   //     [flight_time = (y_velocity) * 2 / -9.8]
-  // CODE HERE
+  double flight_time = (y_velocity) * 2 / -9.8;
 
   // (5) Compute horizontal/x distance traveled
   //     [x_distance = x_velocity * flight_time]
-  // CODE HERE
+  double x_distance = x_velocity * flight_time;
 
   // (6) Return horizontal/x distance
-  // CODE HERE
+  return x_distance;
+}
+
+int main(){
+  double i_v, l_a;
+  cin >> i_v;
+  cin >> l_a;
+  double distance = LaunchHumanCannonball(i_v, l_a);
+  cout << distance;
 }

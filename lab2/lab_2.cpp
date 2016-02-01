@@ -27,29 +27,32 @@
 void MakeChange(int initial_value, int &quarters, int &dimes, int &nickels,
                 int &pennies) {
   
- 
-  while (initial_value >= .25){
-    initial_value - .25;
-    quarters++;
-    cout << quarters << endl;
+  while (initial_value >= 25){
+    initial_value = initial_value - 25;
+    cout << "initial value =" << initial_value << endl;
+    quarters = quarters + 1;
+    cout << "quarters =" << quarters << endl;
   }
   
-  while (initial_value >= .10){
-    initial_value - .10;
-    dimes++;
-    cout << dimes << endl;
+  while (initial_value >= 10){
+    initial_value = initial_value - 10;
+    dimes = dimes + 1;
+    cout << "initial_value = " << initial_value << endl;
+    cout << "dimes = " << dimes << endl;
   }
   
-  while (initial_value >= .05){
-    initial_value - .05;
-    nickels++;
-    cout << nickels << endl;
+  while (initial_value >= 5){
+    initial_value = initial_value - 5;
+    nickels = nickels + 1;
+    cout << "initial_value = " << initial_value << endl;
+    cout << "nickels = " << nickels << endl;
   }
   
-  while (initial_value >= .01){
-    initial_value - .01;
-    pennies++;
-    cout << pennies << endl;
+  while (initial_value >= 1){
+    initial_value = initial_value - 1;
+    pennies = pennies + 1;
+    cout << "initial_value = " << initial_value << endl;
+    cout << "pennies = " << pennies << endl;
   }
 }
 
@@ -57,7 +60,8 @@ int main()
 {
   double initial_value;
   cin >> initial_value;
-  MakeChange (initial_value, 0, 0, 0, 0);
+  int q = 0, d = 0, n = 0, p = 0;
+  MakeChange (initial_value, q, d, n, p);
   return 0;
 }
 

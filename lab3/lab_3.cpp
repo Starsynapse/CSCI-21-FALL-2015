@@ -1,6 +1,6 @@
 /*
  * Name        : lab_3.cpp
- * Author      : FILL IN
+ * Author      : Eduardo Zamora
  * Description : Using branching statements, looping statements and string and
  *               character functions complete the functions
  */
@@ -29,38 +29,49 @@
  * @return string - The output string specified in the documentation above
  */
 string Goldilocks(string item, int number) {
+    string sentence;
     if (item == "porridge"){
         if (number == 1){
-            return "This porridge is too hot! D:<" << endl;
+            sentence = "This porridge is too hot! D:<";
+            return sentence;
         }
-        if (number == 2){
-            return "This porridge is too cold! (insert picture of Mr. Freeze)" << endl;
+        else if (number == 2){
+            sentence = "This porridge is too cold! (insert picture of Mr. Freeze)";
+            return sentence;
         }
-        if (number == 3 || number != 3){
-            return "This porridge is just right. :D" << endl;
-        }
-    
-    else if (item == "chair"){
-        if (number == 1){
-            return "This chair is too big!" << endl;
-        }
-        if (number == 2){
-            return "This chair is too small!" << endl;
-        }
-        if (number == 3 || number != 3){
-            return "This chair is just right." << endl;
+        else if (number == 3 || number != 3){
+            sentence = "This porridge is just right. :D";
+            return sentence;
         }
     }
     
-     else if (item == "bed" || item != "bed"){
+    else if (item == "chair"){
         if (number == 1){
-            return "This bed is too hard!" << endl;
+            sentence = "This chair is too big!";
+            return sentence;
         }
-        if (number == 2){
-            return "This bed is too soft!" << endl;
+        else if (number == 2){
+            sentence = "This chair is too small!";
+            return sentence;
         }
-        if (number == 3 || number != 3){
-            return "This bed is just right." << endl;
+        else if (number == 3 || number != 3){
+            sentence = "This chair is just right.";
+            return sentence;
+        }
+    }
+    
+    else if (item == "bed" || item != "bed"){
+        if (number == 1){
+            sentence = "This bed is too hard!";
+            return sentence;
+        }
+        else if (number == 2){
+            sentence = "This bed is too soft!";
+            return sentence;
+        }
+        else if (number == 3 || number != 3){
+            sentence = "This bed is just right.";
+            return sentence;
         }
     }
 }
@@ -70,7 +81,9 @@ int main(){
     int number;
     cin >> item;
     cin >> number;
-    string Goldilocks(item, number)
+    string lol = Goldilocks(item, number);
+    cout << lol << endl;
+    return 0;
 }
 
 /*
@@ -88,7 +101,46 @@ int main(){
  */
 int RockScissorPaper(char player_one, char player_two) {
   // YOU MUST USE A SWITCH IN THIS FUNCTION
-  // CODE HERE
+    switch (player_one){
+        case 'R':
+            switch (player_two){
+                case 'R':
+                    return 3;
+                case 'P':
+                    return 2;
+                case 'S':
+                    return 1;
+                default:
+                    return 0;
+            }
+            
+        case 'P':
+            switch (player_two){
+                case 'R':
+                    return 1;
+                case 'P':
+                    return 3;
+                case 'S':
+                    return 2;
+                default:
+                    return 0;
+            }
+        
+        case 'S':
+            switch (player_two){
+                case 'R':
+                    return 2;
+                case 'P':
+                    return 1;
+                case 'S':
+                    return 3;
+                default:
+                    return 0;
+            }
+        
+        default:
+            return 0;
+    }
 }
 
 /*
@@ -97,14 +149,14 @@ int RockScissorPaper(char player_one, char player_two) {
  * @return string - a string containing the converted input string
  */
 string ToLower(string input) {
-  // CODE HERE
+  
 }
 
 /*
  * Return the input string with all characters converted to uppercase.
  * @param string input - The string that will be converted to all uppercase
  * @return string - a string containing the converted input string
- */ /*delete this
+ */
 string ToUpper(string input) {
   // CODE HERE
-}dlete this comment out*/
+}

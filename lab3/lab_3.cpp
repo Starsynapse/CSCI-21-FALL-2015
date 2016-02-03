@@ -3,6 +3,7 @@
  * Author      : Eduardo Zamora
  * Description : Using branching statements, looping statements and string and
  *               character functions complete the functions
+ *Sources      :April's Files, Stack Overflow
  */
 
 #include "lab_3.h"
@@ -145,6 +146,7 @@ int RockScissorPaper(char player_one, char player_two) {
     }
 }
 
+/*
 int main(){
     char p1;
     char p2;
@@ -153,6 +155,7 @@ int main(){
     int lol = RockScissorPaper(p1, p2);
     cout << lol << endl;
 }
+*/
 
 /*
  * Return the input string with all characters converted to lowercase.
@@ -160,7 +163,16 @@ int main(){
  * @return string - a string containing the converted input string
  */
 string ToLower(string input) {
-  
+    //tolower(input);
+    return input;
+}
+
+int main(){
+    string input;
+    cin >> input;
+    string lol = ToLower(input);
+    cout << lol;
+    return 0;
 }
 
 /*

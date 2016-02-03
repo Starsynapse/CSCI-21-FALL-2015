@@ -76,6 +76,7 @@ string Goldilocks(string item, int number) {
     }
 }
 
+/*
 int main(){
     string item;
     int number;
@@ -85,6 +86,7 @@ int main(){
     cout << lol << endl;
     return 0;
 }
+*/
 
 /*
  * Compute the outcome of a round of a rock-scissor-paper game. Lowercase or
@@ -141,6 +143,15 @@ int RockScissorPaper(char player_one, char player_two) {
         default:
             return 0;
     }
+}
+
+int main(){
+    char p1;
+    char p2;
+    cin >> p1;
+    cin >> p2;
+    int lol = RockScissorPaper(p1, p2);
+    cout << lol << endl;
 }
 
 /*

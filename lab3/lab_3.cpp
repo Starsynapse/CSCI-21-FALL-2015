@@ -75,6 +75,8 @@ string Goldilocks(string item, int number) {
             return sentence;
         }
     }
+    
+    return sentence;
 }
 
 /*
@@ -163,17 +165,25 @@ int main(){
  * @return string - a string containing the converted input string
  */
 string ToLower(string input) {
-    //tolower(input);
-    return input;
+    string output;
+    
+    for (unsigned int i = 0; i < input.size(); i++)
+    {
+        output[i] = tolower(input[i]);
+    }
+    return output;
 }
+
 
 int main(){
     string input;
+    cout << "lol" << endl;
     cin >> input;
-    string lol = ToLower(input);
-    cout << lol;
+    string output = ToLower(input);
+    cout << output;
     return 0;
 }
+
 
 /*
  * Return the input string with all characters converted to uppercase.
@@ -181,5 +191,10 @@ int main(){
  * @return string - a string containing the converted input string
  */
 string ToUpper(string input) {
-  // CODE HERE
+    string output;
+    
+    for (unsigned int i = 0; i < input.size(); i++){
+        output[i] = toupper(input[i]);
+    }
+    return output;
 }

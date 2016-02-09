@@ -21,7 +21,16 @@
  *                  floating-point value
  */
 string MakeString(string label, double value, char separator) {
-  // CODE HERE
+  stringstream ss;
+  ss.clear();
+  ss.str();
+  ss << label << " " << separator << " " << value;
+  string NewString;
+  NewString = ss.str();
+  return NewString;
+  
+  //string totalstring = label + " " + separator + " " + value;
+  //return totalstring;
 }
 
 /*
@@ -33,7 +42,15 @@ string MakeString(string label, double value, char separator) {
  *                when value is length 0 or value is length > 1
  */
 char StringToChar(string value) {
-  // CODE HERE
+  if (value.length() == 0 || value.length() > 1)
+  {
+    return '\0';
+  }
+  
+  else
+  {
+    return value[0];
+  }
 }
 
 /*
@@ -45,18 +62,18 @@ char StringToChar(string value) {
  * @param string value - The expected integer value
  * @return int - An integer representing the value, or 0 on failure
  */
-int StringToInt(string value) {
+int StringToInt(string value) {//function with one parameter (string containing a value)
   // THIS FUNCTION PROVIDED AS AN EXAMPLE AND IS ALREADY COMPLETE!
-  int ivalue = 0;
-  stringstream converter(value);
-  converter.exceptions(ios_base::failbit);
+  int ivalue = 0;//variable set to 0, integer that will represent the value
+  stringstream converter(value);//the stream will contain the characters of value
+  converter.exceptions(ios_base::failbit);//some type of exeption process
 
   try {
-    converter >> ivalue;
-  } catch (ios_base::failure f) {
+    converter >> ivalue;//gives the value to 'ivalue' using the characters in the stream
+  } catch (ios_base::failure f) {//exception of sorts
   }
 
-  return ivalue;
+  return ivalue;//returns an integer representing the value
 }
 
 /*
@@ -69,7 +86,16 @@ int StringToInt(string value) {
  * @return double - A double representing the value, or 0 on failure
  */
 double StringToDouble(string value) {
-  // CODE HERE
+    double ivalue = 0;
+    stringstream converter(value);
+    converter.exceptions(ios_base::failbit);
+
+  try {
+    converter >> ivalue;
+  } catch (ios_base::failure f){
+  }
+  
+  return ivalue;
 }
 
 /*
@@ -84,5 +110,12 @@ double StringToDouble(string value) {
  *                Return false on anything else.
  */
 bool StringToBool(string value) {
-  // CODE HERE
+  if (value[0] == 'T' || value[0] == 't')
+  {
+    return true;
+  }
+  if (value[0] == 'F' || value[0] == 'f')
+  {
+    return false;
+  }
 }

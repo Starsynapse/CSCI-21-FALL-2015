@@ -70,17 +70,17 @@ int Sum(int values[], int size)
 
 bool SwapValues(int values[], int size, int index1, int index2)
 {
-  int original_index1_value = values[index1];
+  int original_index1_value = values[index1];//creating copies of originals to check if they switched
   int original_index2_value = values[index2];
-  int temp_value;
+  int temp_value;//temporary value for switching
   
-  if ((index1 < size && index1 >= 0) && (index2 < size && index2 >= 0))
+  if ((index1 < size && index1 >= 0) && (index2 < size && index2 >= 0))//checks to make sure the indexes are within the bounds of the array
   {
-    temp_value = values[index1];
+    temp_value = values[index1];//swaps the values
     values[index1] = values[index2];
     values[index2] = temp_value;
     
-    if ((values[index1] == original_index2_value) && (values[index2] == original_index1_value))
+    if ((values[index1] == original_index2_value) && (values[index2] == original_index1_value))//checks if the values sucessfully swaped
     {
       return true;
     }

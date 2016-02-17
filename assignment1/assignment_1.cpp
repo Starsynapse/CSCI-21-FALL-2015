@@ -26,7 +26,6 @@ bool CheckAlphabetic(const string& input)
   
   return true;
 }
-
 // Function 2
 int CountWords(string words)
 {
@@ -51,6 +50,11 @@ int CountWords(string words)
 // Function 3
 bool EncryptString(string& input, int shift)
 {
+  if (input == "")
+  {
+    return false;
+  }
+  
   for (int i = 0; i < input.size(); i++)
   {
     if (!isalpha(input[i]))//checks if characters in the string are not alphanumeric

@@ -53,6 +53,7 @@ TEST_CASE("CheckAlphabetic(\"\")"){
   }
 }
 
+
 TEST_CASE("EncryptString(\"\", 5)"){
   string s = "";
   SECTION("EncryptString(s, 5)"){

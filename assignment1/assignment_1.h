@@ -14,7 +14,6 @@
 #include <sstream>
 #include <cstdlib>
 #include <streambuf>
-#include <array>
 #include <cctype>
 using namespace std;
 

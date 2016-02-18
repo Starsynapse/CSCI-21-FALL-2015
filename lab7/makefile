@@ -4,7 +4,7 @@ lab7test: lab_7_unit_test.o lab_7.o
 	
 #creates the lab7 object file
 lab5: lab_7.cpp lab_7.h
-	g++ -Wall -g -c lab_6.cpp
+	g++ -Wall -g -c lab_7.cpp
 	
 #creates the unit test object file
 lab_7_unit_test: lab_7_unit_test.cpp

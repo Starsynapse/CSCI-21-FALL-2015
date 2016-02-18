@@ -40,6 +40,20 @@ using std::stringstream;
  */
 bool ProcessFile(string filename);
 void ProcessArguments(int argc, char* argv[]);
+/*
+ * Process the argv array (command-line arguments to the program). Ignore
+ * argv[0] as that is the program name. Perform the following operations on
+ * the input values:
+ *   10 -- invoke the function OnTen
+ *   20 -- invoke the function OnTwenty
+ *   30 -- invoke the function OnThirty
+ *   40 -- invoke the function OnForty
+ *   50 -- invoke the function OnFifty
+ *   any other value -- invoke the function OnError
+ * @param int argc - Contains the number of arguments passed to the program
+ *                   on the command-line
+ * @param char *argv[] - An array containing the command-line arguments
+ */
 
 // For testing (DO NOT ALTER)
 extern map<int, int> counters;

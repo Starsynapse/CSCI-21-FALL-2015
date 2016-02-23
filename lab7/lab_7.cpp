@@ -9,11 +9,16 @@
 bool ProcessFile(string filename)
 {
   ifstream inStream;
-  inStream.open(filename);
+  inStream.open(filename.c_str());
+  
+  if (inStream.fail())
+  {
+    return false;
+  }
   
   int number = 0;
   
-  for (int i = 0; i < 101; i++)
+  while (!inStream.eof())
   {
     inStream >> number;
     
@@ -22,22 +27,22 @@ bool ProcessFile(string filename)
       OnTen();
     }
     
-    if (number == 20)
+    else if (number == 20)
     {
       OnTwenty();
     }
     
-    if (number == 30)
+    else if (number == 30)
     {
       OnThirty();
     }
     
-    if (number == 40)
+    else if (number == 40)
     {
       OnForty();
     }
     
-    if (number == 50)
+    else if (number == 50)
     {
       OnFifty();
     }
@@ -49,9 +54,44 @@ bool ProcessFile(string filename)
   }
   
   inStream.close();
+  return true;
 }
 
 void ProcessArguments(int argc, char* argv[])
 {
-  
+  string number;
+  for (int i = 1; i < argc; i++)
+  {
+    number = argv[i];
+    if (number == "10")
+    {
+      OnTen();
+    }
+    
+    else if (number == "20")
+    {
+      OnTwenty();
+    }
+    
+    else if (number == "30")
+    {
+      OnThirty();
+    }
+    
+    else if (number == "40")
+    {
+      OnForty();
+    }
+    
+    else if (number == "50")
+    {
+      OnFifty();
+    }
+    
+    else
+    {
+      cout << argv[i]<< endl;
+      OnError();
+    }
+  }
 }

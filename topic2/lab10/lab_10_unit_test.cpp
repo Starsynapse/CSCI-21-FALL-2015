@@ -4,7 +4,7 @@
  * Description : Unit test to test Lab #10 Functionality
  */
 #define CATCH_CONFIG_MAIN
-#include "../../helpful_files/catch.hpp"
+#include "catch.hpp"
 
 #include "temperature.h"
 // Double Include to Check for Header Guards

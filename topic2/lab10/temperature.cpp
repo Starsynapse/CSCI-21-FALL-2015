@@ -26,7 +26,7 @@ Temperature::Temperature(double temp, char unit)
   
   else if (unit == 'F')
   {
-    kelvin_ = (5.0 * (temp - 32) / 9) + 273
+    kelvin_ = (5.0 * (temp - 32) / 9) + 273;
   }
   
   else
@@ -35,39 +35,70 @@ Temperature::Temperature(double temp, char unit)
   }
 }
 
-void SetTempFromKelvin(double kelvin)
+void Temperature::SetTempFromKelvin(double kelvin)
 {
   kelvin_ = kelvin;
 }
 
-void SetTempFromCelsius(double celsius)
+void Temperature::SetTempFromCelsius(double celsius)
 {
   kelvin_ = celsius + 273.15;
 }
 
-void SetTempFromFahrenheit(double fahrenheit)
+void Temperature::SetTempFromFahrenheit(double fahrenheit)
 {
-  kelvin_ = (5.0 * (fahrenheit - 32) / 9) + 273
+  kelvin_ = (5.0 * (fahrenheit - 32) / 9) + 273;
 }
 
-double GetTempAsKelvin() const
+double Temperature::GetTempAsKelvin() const
 {
-  retun kelvin_;
+  return kelvin_;
 }
 
-double GetTempAsCelsius() const
+double Temperature::GetTempAsCelsius() const
 {
+  double celsius;
   celsius = kelvin_ - 273.15;
   return celsius;
 }
 
-double GetTempAsFahrenheit() const
+double Temperature::GetTempAsFahrenheit() const
 {
+  double fahrenheit;
   fahrenheit = ((kelvin_ * 9.0) / 5) + 32;
   return fahrenheit;
 }
 
-string ToString(char unit = 'K') const
+string Temperature::ToString(char unit) const
 {
+  stringstream ss;
+  ss.str();
+  string temperature;
   
+  ss.setf(std::ios::fixed);
+  ss.setf(std::ios::showpoint);
+  ss.precision(2);
+  
+  if (unit == 'K')
+  {
+    ss << GetTempAsKelvin() << " " << "K";
+  }
+  
+  if (unit == 'C')
+  {
+    ss << GetTempAsCelsius() << " " << "C";
+  }
+  
+  if (unit == 'F')
+  {
+    ss << GetTempAsFahrenheit() << " " << "F";
+  }
+  
+  else
+  {
+    ss << "Invalid Unit";
+  }
+  
+  temperature = ss.str();
+  return temperature;
 }

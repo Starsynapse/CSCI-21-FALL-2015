@@ -1,0 +1,4 @@
+Make sure code has no errors.
+Type in bash: cd 'name of folder program is in'
+Type in bash: make
+Type in bash: ./'name of test file ex: lab6test'

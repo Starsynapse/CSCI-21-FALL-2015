@@ -90,23 +90,13 @@ bool operator ==(const Money &amount1, const Money &amount2)
 
 const Money operator -(const Money &amount)
 {
-  // Get all the cents of the object
-  int all_cents = amount.cents_ + amount.dollars_ * 100;
-  // Converts cents to negative cents
-  int final_dollars = -(all_cents / 100);
-  int final_cents = -(all_cents % 100);
-  return Money(final_dollars, final_cents);
+  // Sets cents and dollars equal to negative cents and dollars respectively
+  return Money(-amount.dollars(), -amount.cents());
 }
 
 ostream& operator <<(ostream &out, const Money &amount)
 {
-  // Get all the cents of the object
-  int all_cents = amount.cents_ + amount.dollars_ * 100;
-  // Handle the fact that money can be negative
-  int abs_all_cents = abs(sum_all_cents);
-  int final_dollars = abs_all_cents / 100;
-  int final_cents = abs_all_cents % 100;
   
-  ostream << final_dollars << final_cents;
-  return out(ostream);
+  out << "$" << amount.dollars_ << amount.cents_;
+  return ostream&(out);
 }

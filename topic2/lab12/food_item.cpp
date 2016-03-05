@@ -48,10 +48,13 @@ double GetUnits()
 
 string Item::ToString()
 {
+  string output;
   stringstream ss;
   ss.str();
   units_.setf(std::ios::showpoint | std::ios::fixed);
   units_.precision(2);
   
   ss << name_ << ", $" << value_ << ", " << units_ << " " << units_of_measure_ << ", " << calories_ << "calories";
+  output = ss.str();
+  return output;
 }

@@ -91,12 +91,33 @@ bool operator ==(const Money &amount1, const Money &amount2)
 const Money operator -(const Money &amount)
 {
   // Sets cents and dollars equal to negative cents and dollars respectively
-  return Money(-amount.dollars(), -amount.cents());
+  return Money (-amount.dollars(), -amount.cents());
 }
 
 ostream& operator <<(ostream &out, const Money &amount)
 {
+  // Create local variables for easy alterations
+  int loc_cents = amount.cents_;
+  int loc_dollars = amount.dollars_;
   
-  out << "$" << amount.dollars_ << amount.cents_;
-  return ostream&(out);
+  //Checks if cents is negative and dollars exists
+  if (loc_cents < 0 && loc_dollars != 0)
+  {
+    loc_cents = -loc_cents;
+    out << "$" << loc_dollars << "." <<setw(2) << setfill('0') <<  loc_cents;
+  }
+  
+  // Checks if cents is negative and dollars is zero
+  else if (loc_cents < 0 && loc_dollars == 0)
+  {
+    loc_cents = -loc_cents;
+    out << "$"  << "-" << loc_dollars << "." << setw(2) << setfill('0') <<  loc_cents;
+  }
+  
+  // Any other combination
+  else
+  {
+    out << "$" << loc_dollars << "." <<setw(2) << setfill('0') <<  loc_cents;
+  }
+  return out;
 }

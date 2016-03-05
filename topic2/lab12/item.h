@@ -17,19 +17,19 @@ class Item
 {
  public:
   //constructor
-  Item (string name = "item", unsigned int value = 0);
+  Item (string name_ = "item", unsigned int value_ = 0);
   
   //destructor "does nothing"
   virtual ~Item ();
   
   //Mutator
-  string SetName(string name);
+  void SetName(string name);
   
   //Accessor
   string GetName();
   
   //Mutator
-  unsigned int SetValue(int value);
+  void SetValue(int value);
   
   //Accessor
   unsigned int GetValue();

@@ -1,47 +1,47 @@
 /*
  * Name        : food_item.cpp
  * Author      : Eduardo Zamora
- * Description : Defining the class functions.
+ * Description : Defining the derived class functions.
  */
 
 #include "food_item.h"
 
-FoodItem(string name_, unsigned int value_, calories_, unit_of_measure_, units_)
+FoodItem::FoodItem(string name_, unsigned int value_, unsigned int calories_, string unit_of_measure_, double units_)
 {
   //empty on purpose
 }
 
-virtual ~FoodItem()
+FoodItem::~FoodItem()
 {
   //does nothing
 }
 
-void FoodItem::SetCalories(unsigned int calories)
+void FoodItem::set_calories(unsigned int calories)
 {
   calories_ = calories;
 }
 
-void FoodItem::SetUnitOfMeasure(string unit_of_measure)
+void FoodItem::set_unit_of_measure(string unit_of_measure)
 {
   unit_of_measure_ = unit_of_measure;
 }
 
-void FoodItem::SetUnits(double units)
+void FoodItem::set_units(double units)
 {
   units_ = units;
 }
 
-unsigned int FoodItem::GetCalories()
+unsigned int FoodItem::calories()
 {
   return calories_;
 }
 
-string FoodItem::GetUnitOfMeasure()
+string FoodItem::unit_of_measure()
 {
   return unit_of_measure_;
 }
 
-double GetUnits()
+double FoodItem::units()
 {
   return units_;
 }
@@ -51,6 +51,9 @@ string Item::ToString()
   string output;
   stringstream ss;
   ss.str();
+  
+  
+  
   units_.setf(std::ios::showpoint | std::ios::fixed);
   units_.precision(2);
   

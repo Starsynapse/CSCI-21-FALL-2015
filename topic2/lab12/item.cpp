@@ -1,48 +1,48 @@
 /*
  * Name        : item.cpp
  * Author      : Eduardo Zamora
- * Description : Defining the class functions.
+ * Description : Defining the base class functions.
  */
 
 #include "item.h"
 
 Item::Item (string name, unsigned int value)
-  {
-    //empty on purpose
-  }
+{
+  //empty on purpose
+}
   
-virtual Item::~Item ()
-  {
-    //does nothing
-  }
+Item::~Item ()
+{
+  //does nothing
+}
   
-string Item::SetName(string name)
-  {
-    name_ = name;
-  }
+void Item::set_name(string name)
+{
+  name_ = name;
+}
   
-string Item::GetName()
-  {
-    return name_;
-  }
+void Item::set_value(int value)
+{
+  value_ = value;
+}
   
-unsigned int Item::SetValue(int value)
-  {
-    value_ = value;
-  }
+string Item::name()
+{
+  return name_;
+}
   
-unsigned int Item::GetValue()
-  {
-    return value_;
-  }
+unsigned int Item::value()
+{
+  return value_;
+}
   
 string Item::ToString()
-  {
-    stringstream = ss;
-    ss.str()
-    string output;
+{
+  stringstream ss;
+  ss.str();
+  string output;
     
-    ss << name_ << ", $" << value_;
-    output = ss.str();
-    return output;
-  }
+  ss << name_ << ", $" << value_;
+  output = ss.str();
+  return output;
+}

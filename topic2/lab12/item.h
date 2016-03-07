@@ -17,30 +17,30 @@ class Item
 {
  public:
   //constructor
-  Item (string name_ = "item", unsigned int value_ = 0);
+  Item(string name_ = "item", unsigned int value_ = 0);
   
   //destructor "does nothing"
-  virtual ~Item ();
+  virtual ~Item();
   
-  //Mutator
-  void SetName(string name);
+  //Mutators
+  void set_name(string name);
   
-  //Accessor
-  string GetName();
+  void set_value(int value);
   
-  //Mutator
-  void SetValue(int value);
+  //Accessors
+  string name();
   
-  //Accessor
-  unsigned int GetValue();
+  unsigned int value();
   
   //returns a string containing name_ and value_
   string ToString();
   
  private:
+  //holds the name of the item
   string name_;
+  
+  //holds the value of the item
   unsigned int value_;
-}
-
+};
 
 #endif /* ITEM_H_ */

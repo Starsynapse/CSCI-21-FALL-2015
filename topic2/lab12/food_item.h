@@ -13,7 +13,7 @@ class FoodItem : public Item
 {
  public:
   //constructor
-  FoodItem(string name_ = "fooditem", unsigned int value_ = 0, unsigned int calories_ = 0, string unit_of_measure_ = "nonunits", double units_ = 0);
+  FoodItem(string name_ = "fooditem", unsigned int value_ = 0, unsigned int calories_ = 0, string unit_of_measure_ = "nounits", double units_ = 0);
   
   //destructor
   virtual ~FoodItem();

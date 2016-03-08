@@ -6,9 +6,10 @@
 
 #include "item.h"
 
-Item::Item (string name, unsigned int value)
+Item::Item(string name, unsigned int value)
 {
-  //empty on purpose
+  name_ = name;
+  value_ = value;
 }
   
 Item::~Item ()
@@ -30,7 +31,7 @@ string Item::name()
 {
   return name_;
 }
-  
+
 unsigned int Item::value()
 {
   return value_;

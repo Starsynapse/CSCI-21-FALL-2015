@@ -6,9 +6,13 @@
 
 #include "food_item.h"
 
-FoodItem::FoodItem(string name_, unsigned int value_, unsigned int calories_, string unit_of_measure_, double units_)
+FoodItem::FoodItem(string name, unsigned int value, unsigned int calories, string unit_of_measure, double units)
 {
-  //empty on purpose
+  Item::set_name(name);
+  Item::set_value(value);
+  calories_ = calories;
+  unit_of_measure_ = unit_of_measure;
+  units_ = units;
 }
 
 FoodItem::~FoodItem()
@@ -46,18 +50,16 @@ double FoodItem::units()
   return units_;
 }
 
-string Item::ToString()
+string FoodItem::ToString()
 {
   string output;
   stringstream ss;
   ss.str();
   
+  ss.setf(std::ios::showpoint | std::ios::fixed);
+  ss.precision(2);
   
-  
-  units_.setf(std::ios::showpoint | std::ios::fixed);
-  units_.precision(2);
-  
-  ss << name_ << ", $" << value_ << ", " << units_ << " " << units_of_measure_ << ", " << calories_ << "calories";
+  ss << Item::ToString() << ", " << units_ << " " << unit_of_measure_ << ", " << calories_ << " calories";
   output = ss.str();
   return output;
 }

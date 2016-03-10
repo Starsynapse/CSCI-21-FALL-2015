@@ -15,38 +15,55 @@
 using namespace std;
 
 
-template<typename Type>
+template<class Type>
 class Box
 {
  public:
   //constructor
-  Box(const Type &value = Type());
+  Box()
+  {
+    //blank
+  }
+  
+  Box(Type value)
+  {
+    value_ = value;
+  }
   
   //Accessor
-  Type value();
+  Type getContents()
+  {
+    return value_;
+  }
   
   //mutator
-  void set_value(const Type &value);
+  void setContents(Type value)
+  {
+    value_ = value;
+  }
   
   //friend overloaded operator<<
-  /*friend Type ostream& operator <<(ostream &out, const &value);
- private:*/
+  friend ostream& operator <<(ostream &out, Box<Type> value)
+  {
+    out << value.value_;
+    return out;
+  }
+ private:
   Type value_;
 };
 
-/*
+
 template<typename T>
-T Sum(T &values = T(), unsigned int size = 0)
+T Sum(T values[] = T(), unsigned int size = 0)
 {
-  T number_sum = T();
-  
-  for(int i = 0; i < size; i++)
+  T total = T();// = values[0];
+  for (int i = 0; i < size; i++)
   {
-    number_sum = number_sum + values[i];
+    total = total + values[i];
   }
   
-  return number_sum;
+  return total;
 }
-*/
+
 
 #endif /* BOX_H_ */

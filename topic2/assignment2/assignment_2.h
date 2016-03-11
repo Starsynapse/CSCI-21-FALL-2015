@@ -15,6 +15,9 @@ class ATM
 {
  public:
   ATM()
+ private:
+  int dollars_;
+  int cents_;
 }
 
 

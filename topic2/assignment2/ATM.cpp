@@ -8,8 +8,14 @@
 #include "SavingsAccount.cpp"
 #include "CreditCardAccount.cpp"
 #include "CheckingAccount.cpp"
+/*
+#include "Bank.h"
+#include "SavingsAccount.h"
+#include "CreditCardAccount.h"
+#include "CheckingAccount.h"
+*/
 
-int ATM()
+int main()
 {
   SavingsAccount Eduardo_SA;
   CreditCardAccount Eduardo_CR;

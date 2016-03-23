@@ -73,10 +73,10 @@ int Min(int* the_array, unsigned int array_size)
   //variable to store min value in array
   
   for(int i = 0; i < array_size; i++)
-  //finds out the largest number by scanning array
+  //finds out the smallest number by scanning array
   {
     if(min > the_array[i])
-    //if the new number is larger
+    //if the new number is smaller
     {
       min = the_array[i];
     }

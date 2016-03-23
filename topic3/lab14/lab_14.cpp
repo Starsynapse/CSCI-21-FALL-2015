@@ -1,6 +1,6 @@
 /*
  * Name        : lab_12.cpp
- * Author      : FILL IN
+ * Author      : Eduardo Zamora
  * Description : Working with Pointers and Dynamic Variables / Arrays
  */
 #include "lab_14.h"

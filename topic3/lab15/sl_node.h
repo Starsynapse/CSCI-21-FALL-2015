@@ -4,6 +4,12 @@
  * Description : Working with nodes
  */
  
+#ifndef LAB_H
+#define LAB_H
+
+#include <iostream>
+using namespace std;
+ 
 class SLNode
 {
  private:
@@ -15,7 +21,7 @@ class SLNode
   
  public:
   SLNode();
-  //default constructor; sets contents_ to 0
+  //default constructor; sets contents_ to 0 and sets contents_ to 0
   
   SLNode(int parameter_assigned_to_contents);
   //sets nest_node to NULL
@@ -34,4 +40,6 @@ class SLNode
   
   SLNode* next_node() const;
   //accessor for next_node_
-}
+};
+
+#endif

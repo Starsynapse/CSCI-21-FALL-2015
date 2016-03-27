@@ -36,7 +36,7 @@ bool operator ==(const Prize &name1, const Prize &name2)
   }
 }
 
-Prize::string getPrizeName()
+string Prize::getPrizeName()
 {
   return prizeName_;
 }
@@ -46,7 +46,7 @@ Prize::setPrizeName(string prizeName)
   prizeName_ = prizeName;
 }
 
-Prize::unsigned int getPrizeValue()
+unsigned int Prize::getPrizeValue()
 {
   return prizeValue_;
 }

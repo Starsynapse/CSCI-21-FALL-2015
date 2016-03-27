@@ -7,6 +7,9 @@
 #ifndef PRIZE_H
 #define PRIZE_H
 
+#include <iostream>
+using namespace std;
+
 class Prize
 {
  private:

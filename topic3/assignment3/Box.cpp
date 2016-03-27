@@ -19,10 +19,11 @@ Box::Box()
   }
 }
 
-Box::Box(unsigned int boxNumber, string boxColor)
+Box::Box(unsigned int boxNumber, string boxColor, unsigned int prizeCapacity)
 {
   boxNumber_ = boxNumber;
   boxColor_ = boxColor;
+  prizeCapacity_ = prizeCapacity;
 }
 
 Box::~Box()
@@ -30,37 +31,37 @@ Box::~Box()
   delete prizes[];
 }
 
-unsigned int getBoxNumber()
+unsigned int Box::getBoxNumber()
 {
   return boxNumber_;
 }
 
-setBoxNumber(unsigned int boxNumber)
+Box::setBoxNumber(unsigned int boxNumber)
 {
   boxNumber_ = boxNumber;
 }
 
-string getBoxColor()
+string Box::getBoxColor()
 {
   return boxColor_;
 }
 
-setBoxColor(string boxColor)
+Box::setBoxColor(string boxColor)
 {
   boxColor_ = boxColor;
 }
 
-getPrizeCapacity()
+Box::getPrizeCapacity()
 {
   return prizeCapacity_;
 }
 
-getPrizeCount()
+Box::getPrizeCount()
 {
   return prizeCount_;
 }
 
-bool addPrize(Prize prize)
+bool Box::addPrize(Prize prize)
 {
   for(int i = 0; i < prizeCapacity_; i++)
   {
@@ -77,7 +78,30 @@ bool addPrize(Prize prize)
   }
 }
 
-getPrize(unsigned int index)
+Box::getPrize(unsigned int index)
 {
+  if(index < 0 || index > prizeCapacity_)
+  {
+    return scratch_;
+  }
   
+  if(prize[index] != "EMPTY")
+  {
+    return Prize&;
+  }
+}
+
+removePrize(unsigned int index)
+{
+  if(index < 0 || index > prizeCapacity_)
+  {
+    return scratch_;
+  }
+  
+  if(prize[index] != "EMPTY")
+  {
+    Prize = prize[index];
+    prize[index] = "EMPTY"
+    return Prize;
+  }
 }

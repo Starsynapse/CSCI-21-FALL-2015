@@ -7,6 +7,9 @@
 #ifndef BOX_H
 #define BOX_H
 
+#include <iostream>
+using namespace std;
+
 class Box
 {
  private:
@@ -32,7 +35,7 @@ class Box
   Box();
   //default constructor
   
-  Box(unsigned int boxNumber, string boxColor);
+  Box(unsigned int boxNumber, string boxColor, unsigned int prizeCapacity);
   //overloaded constructor
   
   ~Box();

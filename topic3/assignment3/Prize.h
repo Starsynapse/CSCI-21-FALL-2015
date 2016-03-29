@@ -35,14 +35,14 @@ class Prize
   string getPrizeName();
   //accessor for prizeName
   
-  setPrizeName(string prizeName);
+  void setPrizeName(string prizeName);
   //mutator for prizeName
   
   unsigned int getPrizeValue();
   //accessor for prizeValue
   
-  setPrizeValue(unsigned int prizeValue);
+  void setPrizeValue(unsigned int prizeValue);
   //mutator for prizeValue
-}
+};
 
 #endif

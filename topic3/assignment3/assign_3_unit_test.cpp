@@ -27,7 +27,7 @@ TEST_CASE("Make default Box"){
 	CHECK(b1.getPrizeCount() == 0);
   }
 }
-
+/*
 TEST_CASE("Default Box Functions"){
   Box b1;
   b1.setBoxNumber(99);
@@ -155,3 +155,4 @@ TEST_CASE ("Prize 1 vs Prize 2"){
 	CHECK ((p1 == p2) == false);
   }
 }
+*/

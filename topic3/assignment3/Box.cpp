@@ -5,6 +5,7 @@
  */
  
 #include "Box.h"
+#include "Prize.h"
 
 Box::Box()
 {
@@ -13,9 +14,10 @@ Box::Box()
   prizeCapacity_ = 5;
   prizeCount_ = 0;
   
+  Prize *prizes = new Prize[prizeCapacity_];
   for(int i = 0; i < prizeCapacity_; i++)
   {
-    prizes[i] = "EMPTY";
+    prizes[i] = Prize();
   }
 }
 
@@ -28,7 +30,7 @@ Box::Box(unsigned int boxNumber, string boxColor, unsigned int prizeCapacity)
 
 Box::~Box()
 {
-  delete prizes[];
+  delete prizes;
 }
 
 unsigned int Box::getBoxNumber()
@@ -36,7 +38,7 @@ unsigned int Box::getBoxNumber()
   return boxNumber_;
 }
 
-Box::setBoxNumber(unsigned int boxNumber)
+void Box::setBoxNumber(unsigned int boxNumber)
 {
   boxNumber_ = boxNumber;
 }
@@ -46,17 +48,17 @@ string Box::getBoxColor()
   return boxColor_;
 }
 
-Box::setBoxColor(string boxColor)
+void Box::setBoxColor(string boxColor)
 {
   boxColor_ = boxColor;
 }
 
-Box::getPrizeCapacity()
+unsigned int Box::getPrizeCapacity()
 {
   return prizeCapacity_;
 }
 
-Box::getPrizeCount()
+unsigned int Box::getPrizeCount()
 {
   return prizeCount_;
 }
@@ -65,43 +67,44 @@ bool Box::addPrize(Prize prize)
 {
   for(int i = 0; i < prizeCapacity_; i++)
   {
-    if(prize[i] == "EMPTY")
+    if(prizes[i] == Prize())
     {
-      prize[i] = prize;
+      prizes[i] = prize;
       return true;
     }
-  }
-  
-  else
-  {
+    else
+    {
     return false;
+    }
   }
 }
 
-Box::getPrize(unsigned int index)
+Prize Box::getPrize(unsigned int index)
 {
   if(index < 0 || index > prizeCapacity_)
   {
     return scratch_;
   }
   
-  if(prize[index] != "EMPTY")
+  if(!(prizes[index] == Prize()))
   {
-    return Prize&;
+    return prizes[index];
   }
 }
 
-removePrize(unsigned int index)
+Prize Box::removePrize(unsigned int index)
 {
   if(index < 0 || index > prizeCapacity_)
   {
     return scratch_;
   }
   
-  if(prize[index] != "EMPTY")
+  else if(!(prizes[index] == Prize()))
   {
-    Prize = prize[index];
-    prize[index] = "EMPTY"
-    return Prize;
+    Prize p = prizes[index];
+    prizes[index] = Prize();
+    return p;
   }
+  
+  //else
 }

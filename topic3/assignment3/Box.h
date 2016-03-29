@@ -8,6 +8,7 @@
 #define BOX_H
 
 #include <iostream>
+#include "Prize.h"
 using namespace std;
 
 class Box
@@ -22,7 +23,7 @@ class Box
   Prize scratch_;
   //
   
-  Prize* prizes[];
+  Prize* prizes;
   //dynamic array
   
   unsigned int prizeCapacity_;
@@ -44,29 +45,29 @@ class Box
   unsigned int getBoxNumber();
   //accessor for boxNumber_
   
-  setBoxNumber(unsigned int boxNumber);
+  void setBoxNumber(unsigned int boxNumber);
   //mutator for boxNumber_
   
   string getBoxColor();
   //accessor for boxColor_
   
-  setBoxColor(string boxColor);
+  void setBoxColor(string boxColor);
   //mutator for boxColor_
   
-  getPrizeCapacity();
+  unsigned int getPrizeCapacity();
   //accessor for prizeCapacity_
   
-  getPrizeCount();
+  unsigned int getPrizeCount();
   //accessor for prizeCount_
   
   bool addPrize(Prize prize);
   //place prize in prizes array if there is space and return true, else return false
   
-  getPrize(unsigned int index);
+  Prize getPrize(unsigned int index);
   //return a Prize if index is valid, else return scratch (data member declared in class header)
   
-  removePrize(unsigned int index);
+  Prize removePrize(unsigned int index);
   //remove and return Prize if index is valid, else return scratch (data member declared in class header)
-}
+};
 
 #endif

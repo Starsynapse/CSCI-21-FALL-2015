@@ -6,7 +6,7 @@
 
 #include "Prize.h"
 
-Prize::prizeName()
+Prize::Prize()
 {
   prizeName = "NO NAME";
   prizeValue = 0;

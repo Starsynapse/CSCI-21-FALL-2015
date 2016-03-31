@@ -8,8 +8,8 @@
 
 Prize::Prize()
 {
-  prizeName = "NO NAME";
-  prizeValue = 0;
+  prizeName_ = "NO NAME";
+  prizeValue_ = 0;
 }
 
 Prize::Prize(string prizeName, unsigned int prizeValue)
@@ -25,7 +25,7 @@ Prize::~Prize()
 
 bool operator ==(const Prize &name1, const Prize &name2)
 {
-  if(name1.prizeName == name2.prizeName && name1.prizeValue == name2.prizeValue)
+  if(name1.prizeName_ == name2.prizeName_ && name1.prizeValue_ == name2.prizeValue_)
   {
     return true;
   }
@@ -41,7 +41,7 @@ string Prize::getPrizeName()
   return prizeName_;
 }
 
-Prize::setPrizeName(string prizeName)
+void Prize::setPrizeName(string prizeName)
 {
   prizeName_ = prizeName;
 }
@@ -51,7 +51,7 @@ unsigned int Prize::getPrizeValue()
   return prizeValue_;
 }
 
-Prize::setPrizeValue(unsigned int prizeValue)
+void Prize::setPrizeValue(unsigned int prizeValue)
 {
   prizeValue_ = prizeValue;
 }

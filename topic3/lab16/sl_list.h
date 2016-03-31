@@ -8,6 +8,7 @@
 #define SL_LIST_H
 
 #include <iostream>
+#include <sstream>
 #include "sl_node.h"
 using namespace std;
 

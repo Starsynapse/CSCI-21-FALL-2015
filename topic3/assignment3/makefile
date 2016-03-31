@@ -1,6 +1,6 @@
 #creates the executable from both the object files
-assignment3test: assign_3_unit_test.o Box.o
-	g++ -Wall -g -o lab14test Box.o assign_3_unit_test.o
+assignment3test: assign_3_unit_test.o Box.o Prize.o
+	g++ -Wall -g -o lab14test Box.o Prize.o assign_3_unit_test.o
 	
 #creates the Box object file
 Box: Box.cpp Box.h

@@ -24,6 +24,9 @@ void SLList::InsertHead(int new_head)
     temp -> set_next_node(head_);
     //temp points to the next node "head_"
     head_ = temp;
+    //head points to temp
+    size_++;
+    //increments the size of the list
 }
 
 void SLList::RemoveHead()
@@ -38,6 +41,8 @@ void SLList::RemoveHead()
         //delete what temp is pointing to
         temp = NULL;
         //makes temp point to NULL
+        size_--;
+        //decrements the size of the list
     }
 }
 
@@ -51,10 +56,34 @@ void SLList::Clear()
 
 unsigned int SLList::size() const
 {
-    
+    return size_;
 }
 
 string SLList::ToString() const
 {
+    stringstream ss;
+    ss.str();
+    string to_string = "";
+    SLNode *iterator = head_;
+    //creates iterator node and makes it equal to the head_
     
+    if(head_ == NULL)
+    {
+        return to_string;
+    }
+    
+    while(iterator != NULL)
+    {
+        ss << iterator -> contents();
+        if((iterator -> next_node()) != NULL)
+        {
+            ss << ", ";
+        }
+        
+        iterator = iterator -> next_node();
+        //sets head_ equal to the next node
+    }
+    
+    to_string = ss.str();
+    return to_string;
 }

@@ -3,7 +3,7 @@
  * Author      : Eduardo Zamora
  * Description : driver for the classes and objects
  */
- 
+ /*
 #include "Prize.h"
 #include "Box.h"
 
@@ -13,4 +13,4 @@ main()
     //create Box object
     
     one.
-}
+}*/

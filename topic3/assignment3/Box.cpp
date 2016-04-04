@@ -26,6 +26,12 @@ Box::Box(unsigned int boxNumber, string boxColor, unsigned int prizeCapacity)
   boxNumber_ = boxNumber;
   boxColor_ = boxColor;
   prizeCapacity_ = prizeCapacity;
+  /*
+  Prize *prizes = new Prize[prizeCapacity_];
+  for(int i = 0; i < prizeCapacity_; i++)
+  {
+    prizes[i] = Prize();
+  }*/
 }
 
 Box::~Box()

@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string>
 #include "sl_node.h"
 using namespace std;
 
@@ -33,6 +34,18 @@ class SLList
   
   void InsertHead(int new_head);
   //creates a new dynamic SLNode with the contents of the parameter and attaches as the new head of the list
+  
+  void InsertTail(int new_tail);
+  //creates a new dynamic SLNode with the contents of the parameter and attaches as the last node (tail) of the list
+  
+  void RemoveTail();
+  //removes the last node (tail) from the list, or does nothing if the list is empty
+  
+  int GetHead() const;
+  //Returns the contents of the head node (The node head_ is pointing to). Returns 0 if the list is empty
+  
+  int GetTail() const;
+  //Returns the contents of the tail node (The node tail_ is pointing to). Returns 0 if the list is empty
   
   void RemoveHead();
   //removes the head node from the list, or does nothing if the list is empty

@@ -29,11 +29,37 @@ void SLList::InsertHead(int new_head)
     size_++;
     //increments the size of the list
     
+    if(tail_ == NULL)
+    {
+        tail_ = head_;
+        //sets tail equal to head_
+        while((tail_ -> next_node()) != NULL)
+        //while tail's node is not pointing to NULL it will go down the list until it does point to NULL
+        {
+            tail_ = tail_ -> next_node();
+        }
+    }
+}
+
+void SLList::InsertTail(int new_tail)
+{
+    SLNode *temp = new SLNode(new_tail);
+    //creates temp node and makes it equal to the new_tail information
+    /*
     tail_ = head_;
     while(tail_ != NULL)
     {
         tail_ = tail_ -> next_node();
     }
+    */
+    tail_ -> set_next_node(temp);
+    //makes the tail node point to the new node
+    tail_ = temp;
+    //the new node at the end of the list is saved as the new tail_
+    //tail_ = NULL;
+    //makes the tail point at null because that is what the tail does
+    size_++;
+    //the newly inserted tail increases the size of the list
 }
 
 void SLList::RemoveHead()
@@ -51,6 +77,66 @@ void SLList::RemoveHead()
         size_--;
         //decrements the size of the list
     }
+    
+    else if(head_ == NULL)
+    {
+        tail_ = NULL;
+    }
+}
+
+void SLList::RemoveTail()
+{
+    if(head_ == NULL)
+    {
+        //nope
+    }
+    
+    else if(head_ != NULL)
+    {
+        SLNode *temp = head_;
+        //creates temp node and makes it equal to the head_
+        while((temp -> next_node()) != tail_)
+        {
+            temp = temp -> next_node();
+        }
+        
+        tail_ = temp;
+        //make tail equal to the temp which should be the node before the original tail
+        temp = temp -> next_node();
+        //makes the temp the original tail
+        tail_ == NULL;//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        //tail points to null because that is what a tail should do
+        delete temp;
+        //deletes the node temp is pointing at
+        temp = NULL;
+        //makes temp point to null
+    }
+}
+
+int SLList::GetHead() const
+{
+    if(head_ == NULL)
+    {
+        return 0;
+    }
+    
+    else
+    {
+        return (head_ -> contents());
+    }
+}
+
+int SLList::GetTail() const
+{
+    if(tail_ == NULL)
+    {
+        return 0;
+    }
+    
+    else
+    {
+        return (tail_ -> contents());
+    }
 }
 
 void SLList::Clear()
@@ -59,6 +145,8 @@ void SLList::Clear()
     {
         RemoveHead();
     }
+    
+    tail_ = NULL;
 }
 
 unsigned int SLList::size() const

@@ -1,0 +1,80 @@
+Declare and implement a class that provides the following interface EXACTLY.
+You will modify 2 files, sl_list.h and sl_list.cpp
+You will also need to use your sl_node.h and sl_node.cpp from the previous labs
+
+Class Name: SLList
+
+Private Members:
+
+	SLNode* head_
+	--points to the first node in a singly-linked list
+	SLNode* tail_ (*NEW*)
+	--points to the last node in a singly-linked list
+	unsigned int size_
+	--stores the count of the number of nodes in the list
+
+Public Members:
+
+	Default Constructor (*MODIFY*)
+	--sets head_ to NULL
+	--sets tail_ to NULL (*NEW*)
+	--sets size_ to 0
+	
+	Destructor
+	--calls Clear()
+	
+	void InsertHead(int) (*MODIFY*)
+	--creates a new dynamic SLNode with the contents of 
+		the parameter and attaches as the new head of the list
+		(*NEW*) - Handle tail_ when the first node in the list is added
+
+	void InsertTail(int) (*NEW*)
+	--creates a new dynamic SLNode with the contents of 
+		the parameter and attaches as the last node (tail) of the list
+	
+	void RemoveHead() (*MODIFY*)
+	--removes the head node from the list,
+	  or does nothing if the list is empty
+	  (*NEW*) - Handle tail_ when the last remaining node in the list is removed
+
+	void RemoveTail() (*NEW*)
+	--removes the last node (tail) from the list,
+	  or does nothing if the list is empty
+
+  int GetHead() const (*NEW*)
+  -- Returns the contents of the head node
+     (The node head_ is pointing to)
+     Returns 0 if the list is empty
+   
+  int GetTail() const (*NEW*)
+  -- Returns the contents of the tail node
+     (The node tail_ is pointing to)
+     Returns 0 if the list is empty
+
+	void Clear() (*MODIFY*)
+	--clears the entire contents of the list,
+	  freeing all memory associated with all nodes
+	  (*NEW*) - sets tail_ to NULL
+	
+	unsigned int size() const
+	--accessor for size_
+	
+	string ToString() const
+	--returns a string representation of the contents
+	  of all nodes in the list, in the format
+	  NUM1, NUM2, ..., LASTNUM
+		returns the empty string on an empty list (i.e. returns "")
+
+A Makefile has been included with this exercise.
+Type make to see available options
+
+Please note you need to follow programming style guidelines for this exercise.
+
+Labs having the following will lose 10% per category:
+- Code (such as output statements) not explicitly required
+- Bad Programming Style (Variable Names, Formatting, Fails Style Check)
+
+Labs that DO NOT COMPILE will receive a ZERO!
+
+NOTE: Labs that compile with warnings will be treated as if they did not
+      compile. (i.e. they will receive a zero)

@@ -8,6 +8,7 @@
 #define PRIZE_H
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Prize

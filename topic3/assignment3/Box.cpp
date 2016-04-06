@@ -26,9 +26,8 @@ Box::Box(unsigned int boxNumber, string boxColor, unsigned int prizeCapacity)
   boxNumber_ = boxNumber;
   boxColor_ = boxColor;
   prizeCapacity_ = prizeCapacity;
-  /*
   Prize *prizes = new Prize[prizeCapacity_];
-  for(int i = 0; i < prizeCapacity_; i++)
+/*  for(int i = 0; i < prizeCapacity_; i++)
   {
     prizes[i] = Prize();
   }*/
@@ -51,12 +50,14 @@ void Box::setBoxNumber(unsigned int boxNumber)
 
 string Box::getBoxColor()
 {
+  cout<<boxColor_;
   return boxColor_;
 }
 
 void Box::setBoxColor(string boxColor)
 {
   boxColor_ = boxColor;
+  cout<<boxColor_;
 }
 
 unsigned int Box::getPrizeCapacity()

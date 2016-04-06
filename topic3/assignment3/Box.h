@@ -8,6 +8,7 @@
 #define BOX_H
 
 #include <iostream>
+#include <string>
 #include "Prize.h"
 using namespace std;
 

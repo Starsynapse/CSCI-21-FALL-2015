@@ -20,25 +20,29 @@ TEST_CASE("Make default Box"){
   SECTION("getBoxColor()"){
  	CHECK(b1.getBoxColor() == "NO COLOR");
   }
-  SECTION ("getPrizeCapacity()"){
+/*  SECTION ("getPrizeCapacity()"){
 	CHECK(b1.getPrizeCapacity() == 5);
   }
   SECTION ("getPrizeCount()"){
 	CHECK(b1.getPrizeCount() == 0);
-  }
+  }*/
 }
+
 
 TEST_CASE("Default Box Functions"){
   Box b1;
-  b1.setBoxNumber(99);
-    b1.setBoxColor("red");
+  b1.setBoxNumber(99);    
+  b1.setBoxColor("red");
+
 
   SECTION("setBoxNumber(99)"){
 	CHECK(b1.getBoxNumber() == 99);
   }
+  
+
   SECTION("setBoxColor()"){
+    b1.setBoxColor("red");
 	CHECK(b1.getBoxColor() == "red");
-	//CHECK(b1.getBoxColor() == "NO COLOR");
   }
 }
 /*

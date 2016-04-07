@@ -109,15 +109,25 @@ void SLList::RemoveTail()
             //creates an iterator and makes it equal to head_
             
             while((iterator -> next_node()) != NULL)
+            //makes sure iterator stops at tail_
             {
                 temp = iterator;
+                //temp is set to iterator before it moves on to the next node
                 iterator = iterator -> next_node();
+                //iterator moves on and points to the next node in the list
             }
+            //iterator should now point at tail_ and temp points to the node before the tail_ node
+            
             temp -> set_next_node(NULL);
+            //temp is set to point at NULL
             tail_ = temp;
+            //tail_ points at temp node
             delete iterator;
+            //iterator node is deleted
             iterator = NULL;
+            //iterator points at null
             size_--;
+            //the size of the list decreases
         }
     }
 }
@@ -179,6 +189,7 @@ string SLList::ToString() const
     while(iterator != NULL)
     {
         ss << iterator -> contents();
+        //adds the contents of the current node to the string
         if((iterator -> next_node()) != NULL)
         {
             ss << ", ";

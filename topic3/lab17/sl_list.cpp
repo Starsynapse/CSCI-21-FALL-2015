@@ -33,33 +33,39 @@ void SLList::InsertHead(int new_head)
     {
         tail_ = head_;
         //sets tail equal to head_
-        while((tail_ -> next_node()) != NULL)
-        //while tail's node is not pointing to NULL it will go down the list until it does point to NULL
-        {
-            tail_ = tail_ -> next_node();
-        }
     }
 }
 
-void SLList::InsertTail(int new_tail)
+void SLList::InsertTail(int new_tail)//this or some function before it is broken
 {
-    SLNode *temp = new SLNode(new_tail);
-    //creates temp node and makes it equal to the new_tail information
-    /*
-    tail_ = head_;
-    while(tail_ != NULL)
+    if(tail_ != NULL)
     {
-        tail_ = tail_ -> next_node();
+        SLNode *temp = new SLNode(new_tail);
+        //creates temp node and makes it equal to the new_tail information
+        tail_ -> set_next_node(temp);//this breaks it
+        //temp -> set_next_node(tail_);//this works but doesn't pass it
+        //makes the tail node point to the new node
+        tail_ = temp;
+        //the new node at the end of the list is saved as the new tail_
+        tail_ -> set_next_node(NULL);
+        //makes the tail point at null because that is what the tail does
+        size_++;
+        //the newly inserted tail increases the size of the list
     }
-    */
-    tail_ -> set_next_node(temp);
-    //makes the tail node point to the new node
-    tail_ = temp;
-    //the new node at the end of the list is saved as the new tail_
-    //tail_ = NULL;
-    //makes the tail point at null because that is what the tail does
-    size_++;
-    //the newly inserted tail increases the size of the list
+    
+    else if(tail_ == NULL)
+    {
+        SLNode *temp = new SLNode(new_tail);
+        //creates temp node and makes it equal to the new_tail information
+        tail_ = temp;
+        //makes tail_ point to the node temp is pointing to
+        tail_ -> set_next_node(NULL);
+        //makes the tail point at null because that is what the tail does
+        head_ = tail_;
+        //sets head equal to tail
+        size_++;
+        //the added tail increases the node count
+    }
 }
 
 void SLList::RemoveHead()
@@ -78,7 +84,7 @@ void SLList::RemoveHead()
         //decrements the size of the list
     }
     
-    else if(head_ == NULL)
+    if(head_ == NULL)
     {
         tail_ = NULL;
     }
@@ -86,30 +92,33 @@ void SLList::RemoveHead()
 
 void SLList::RemoveTail()
 {
-    if(head_ == NULL)
+    if (head_ != NULL)
+    //checks if the list is null
     {
-        //nope
-    }
-    
-    else if(head_ != NULL)
-    {
-        SLNode *temp = head_;
-        //creates temp node and makes it equal to the head_
-        while((temp -> next_node()) != tail_)
+        if(head_ -> next_node() == NULL)
+        //checks if head is the only node
         {
-            temp = temp -> next_node();
+            RemoveHead();
         }
         
-        tail_ = temp;
-        //make tail equal to the temp which should be the node before the original tail
-        temp = temp -> next_node();
-        //makes the temp the original tail
-        tail_ == NULL;//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        //tail points to null because that is what a tail should do
-        delete temp;
-        //deletes the node temp is pointing at
-        temp = NULL;
-        //makes temp point to null
+        else
+        {
+            SLNode *temp = NULL;
+            //creates temp node and makes it equal to NULL
+            SLNode *iterator = head_;
+            //creates an iterator and makes it equal to head_
+            
+            while((iterator -> next_node()) != NULL)
+            {
+                temp = iterator;
+                iterator = iterator -> next_node();
+            }
+            temp -> set_next_node(NULL);
+            tail_ = temp;
+            delete iterator;
+            iterator = NULL;
+            size_--;
+        }
     }
 }
 

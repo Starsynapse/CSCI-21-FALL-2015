@@ -48,6 +48,10 @@ class SLList
   //creates a new SLNode with the contents of the parameter and inserts it into the correct position in the list. The list
   //will be sorted with the lowest values in the front (head) and the largest values in the back (tail).
   
+  bool RemoveFirstOccurence(int remove_node);
+  //remove the first occurence of the supplied parameter found as the data of a node. Return true on successful
+  //removal or false if the list is empty or if the value is not found.
+  
   int GetHead() const;
   //Returns the contents of the head node (The node head_ is pointing to). Returns 0 if the list is empty
   

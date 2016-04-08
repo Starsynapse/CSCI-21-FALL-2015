@@ -26,24 +26,100 @@ void SLList::Insert(int new_node)
     //creates an iterator and makes it point to head_
     SLNode *iterator2 = NULL;
     //second iterator to trail behind the first iterator
+    unsigned int original_size = size_;
     
-    if((iterator -> contents()) > (temp -> contents())
-    //checks if the head is smaller than the new node
+    if(iterator == NULL)
+    //checks if the list is empty
     {
         InsertHead(new_node);
     }
     
-    else
+    while(iterator != NULL && original_size == size_)
     {
-        while(iterator -> next_node() != NULL)
+        if((iterator -> contents()) >= (temp -> contents()))
+        //checks if the iterator is larger than or equal to the new node
         {
-            if((iterator -> next_node()) ==)
+            if(iterator2 == NULL)
+            {
+                InsertHead(new_node);
+            }
             
+            else
+            {
+                iterator2 -> set_next_node(temp);
+                temp -> set_next_node(iterator);
+                size_++;
+            }
         }
         
-        if 
+        else if((iterator -> contents()) < (temp -> contents()))
+        //checks if the iterator is smaller than the new node
+        {
+            if((iterator -> next_node()) == NULL)
+            {
+                InsertTail(new_node);
+            }
+            
+            iterator2 = iterator;
+            iterator = iterator -> next_node();
+        }
+    }
+}
+
+bool SLList::RemoveFirstOccurence(int remove_node)
+{
+    SLNode *temp = NULL;
+    //creates a temp pointer to hold the node to be deleted
+    SLNode *iterator = head_;
+    //creates an iterator and makes it point to head_
+    SLNode *iterator2 = NULL;
+    //second iterator to trail behind the first iterator
+    
+    while(iterator != NULL)
+    {
+        if((iterator -> contents()) == remove_node)
+        {
+            if(iterator2 == NULL)
+            {
+                RemoveHead();
+                return true;
+            }
+            
+            else
+            {
+                if((iterator -> next_node()) == NULL)
+                {
+                    RemoveTail();
+                    return true;
+                }
+                
+                else
+                {
+                    temp = iterator;
+                    //points to the node that will be deleted
+                    iterator = iterator -> next_node();
+                    //iterator points to the node after the one to be deleted
+                    iterator2 -> set_next_node(iterator);
+                    //iterator2's node sets the next node to iterator's node, skipping over the soon to be deleted node
+                    delete temp;
+                    //deletes the node
+                    temp = NULL;
+                    //sets temp to NULL
+                    size_--;
+                    //size of linked list decreases
+                    return true;
+                }
+            }
+        }
+        
+        else
+        {
+            iterator2 = iterator;
+            iterator = iterator -> next_node();
+        }
     }
     
+    return false;
 }
 
 void SLList::InsertHead(int new_head)

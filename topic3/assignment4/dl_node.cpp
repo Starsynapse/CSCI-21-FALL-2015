@@ -52,3 +52,8 @@ DLNode* DLNode::next_node() const
 {
   return next_node_;
 }
+
+DLNode* DLNode::previous_node() const
+{
+  return previous_node_;
+}

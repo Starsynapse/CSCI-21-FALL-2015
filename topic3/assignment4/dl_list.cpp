@@ -24,7 +24,7 @@ void DLList::Insert(int new_node)
     //creates temp node and makes it point at the new_node information
     DLNode *iterator = head_;
     //creates an iterator and makes it point to head_
-    DLNode *iterator2 = NULL;
+    DLNode *iterator2 = tail_;
     //second iterator to trail behind the first iterator
     unsigned int original_size = size_;
     
@@ -47,7 +47,13 @@ void DLList::Insert(int new_node)
             else
             {
                 iterator2 -> set_next_node(temp);
+                //makes the previous node point at the new node
                 temp -> set_next_node(iterator);
+                //makes the new node point at the next node
+                iterator -> set_previous_node(temp);
+                //makes the next node point at the new node
+                temp -> set_previous_node(iterator2);
+                //makes the new node point the previous node
                 size_++;
             }
         }
@@ -60,8 +66,11 @@ void DLList::Insert(int new_node)
                 InsertTail(new_node);
             }
             
-            iterator2 = iterator;
-            iterator = iterator -> next_node();
+            else
+            {
+                iterator2 = iterator;
+                iterator = iterator -> next_node();
+            }
         }
     }
 }
@@ -85,30 +94,29 @@ bool DLList::RemoveFirstOccurence(int remove_node)
                 return true;
             }
             
+            else if((iterator -> next_node()) == NULL)
+            {
+                RemoveTail();
+                return true;
+            }
+            
             else
             {
-                if((iterator -> next_node()) == NULL)
-                {
-                    RemoveTail();
-                    return true;
-                }
-                
-                else
-                {
-                    temp = iterator;
-                    //points to the node that will be deleted
-                    iterator = iterator -> next_node();
-                    //iterator points to the node after the one to be deleted
-                    iterator2 -> set_next_node(iterator);
-                    //iterator2's node sets the next node to iterator's node, skipping over the soon to be deleted node
-                    delete temp;
-                    //deletes the node
-                    temp = NULL;
-                    //sets temp to NULL
-                    size_--;
-                    //size of linked list decreases
-                    return true;
-                }
+                temp = iterator;
+                //points to the node that will be deleted
+                iterator = iterator -> next_node();
+                //iterator points to the node after the one to be deleted
+                iterator2 -> set_next_node(iterator);
+                //iterator2's node sets the next node to iterator's node, skipping over the soon to be deleted node
+                iterator -> set_previous_node(iterator2);
+                //iterator's node sets the previous node to iterator2's node
+                delete temp;
+                //deletes the node
+                temp = NULL;
+                //sets temp to NULL
+                size_--;
+                //size of linked list decreases
+                return true;
             }
         }
         
@@ -120,6 +128,69 @@ bool DLList::RemoveFirstOccurence(int remove_node)
     }
     
     return false;
+}
+
+bool DLList::RemoveAllOccurence(int remove_node)
+{
+    DLNode *temp = NULL;
+    //creates a temp pointer to hold the node to be deleted
+    DLNode *iterator = head_;
+    //creates an iterator and makes it point to head_
+    DLNode *iterator2 = tail_;
+    //second iterator to trail behind the first iterator
+    unsigned int original_size = size_;
+    
+    while(iterator != NULL)
+    {
+        if((iterator -> contents()) == remove_node)
+        {
+            if(iterator2 == NULL)
+            {
+                RemoveHead();
+            }
+            
+            else if((iterator -> next_node()) == NULL)
+            {
+                RemoveTail();
+            }
+            
+            else
+            {
+                temp = iterator;
+                //points to the node that will be deleted
+                iterator = iterator -> next_node();
+                //iterator points to the node after the one to be deleted
+                iterator2 -> set_next_node(iterator);
+                //iterator2's node sets the next node to iterator's node, skipping over the soon to be deleted node
+                iterator -> set_previous_node(iterator2);
+                //iterator's node sets the previous node to iterator2's node
+                delete temp;
+                //deletes the node
+                temp = NULL;
+                //sets temp to NULL
+                size_--;
+                //size of linked list decreases
+            }
+        }
+        
+        else
+        {
+            iterator2 = iterator;
+            iterator = iterator -> next_node();
+        }
+    }
+    
+    if(original_size != size_)
+    //a change in size means at least one node was removed
+    {
+        return true;
+    }
+    
+    else
+    //specified node was not found
+    {
+        return false;
+    }
 }
 
 void DLList::InsertHead(int new_head)
@@ -154,8 +225,8 @@ void DLList::InsertTail(int new_tail)//this or some function before it is broken
         //makes the temp node point to the previous node tail
         tail_ = temp;
         //the new node at the end of the list is saved as the new tail_
-        tail_ -> set_next_node(NULL);
-        //makes the tail point at null because that is what the tail does
+        tail_ -> set_next_node(head_);
+        //makes the tail point at head_ because it is a circular linked list
         size_++;
         //the newly inserted tail increases the size of the list
     }
@@ -164,9 +235,11 @@ void DLList::InsertTail(int new_tail)//this or some function before it is broken
     {
         DLNode *temp = new DLNode(new_tail);
         //creates temp node and makes it equal to the new_tail information
+        temp -> set_previous_node(tail_);
+        //makes the new tail point to the old tail making it the previous node
         tail_ = temp;
         //makes tail_ point to the node temp is pointing to
-        tail_ -> set_next_node(NULL);
+        tail_ -> set_next_node(head_);
         //makes the tail point at null because that is what the tail does
         head_ = tail_;
         //sets head equal to tail
@@ -183,6 +256,8 @@ void DLList::RemoveHead()
         //creates temp node and makes it equal to the head_
         head_ = head_ -> next_node();
         //sets head_ equal to the next node
+        head_ -> set_previous_node(tail_);
+        //the node before head_ is tail_
         delete temp;
         //delete what temp is pointing to
         temp = NULL;
@@ -225,8 +300,8 @@ void DLList::RemoveTail()
             }
             //iterator should now point at tail_ and temp points to the node before the tail_ node
             
-            temp -> set_next_node(NULL);
-            //temp is set to point at NULL
+            temp -> set_next_node(head_);
+            //temp is set to point at head_
             tail_ = temp;
             //tail_ points at temp node
             delete iterator;
@@ -263,6 +338,26 @@ int DLList::GetTail() const
     {
         return (tail_ -> contents());
     }
+}
+
+bool DLList::Get(int target) const
+{
+    DLNode *iterator = head_;
+    //creates an iterator and makes it point to head_
+    while(iterator != NULL)
+    {
+        if((iterator -> contents()) == target)
+        {
+            return true;
+        }
+        
+        else
+        {
+            iterator = iterator -> next_node();
+        }
+    }
+    
+    return false;
 }
 
 void DLList::Clear()

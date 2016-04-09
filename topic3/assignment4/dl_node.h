@@ -46,6 +46,9 @@ class DLNode
   
   DLNode* next_node() const;
   //accessor for next_node_
+  
+  DLNode* previous_node() const;
+  //accessor for previous_node_
 };
 
 #endif

@@ -52,11 +52,17 @@ class DLList
   //remove the first occurence of the supplied parameter found as the data of a node. Return true on successful
   //removal or false if the list is empty or if the value is not found.
   
+  bool RemoveAllOccurence(int remove_node);
+  //remove all instances of DLNode containing target; do nothing if target is not found
+  
   int GetHead() const;
   //Returns the contents of the head node (The node head_ is pointing to). Returns 0 if the list is empty
   
   int GetTail() const;
   //Returns the contents of the tail node (The node tail_ is pointing to). Returns 0 if the list is empty
+  
+  bool Get(int target) const;
+  //return true if target is in list, else return false
   
   void Clear();
   //clears the entire contents of the list, freeing all memory associated with all nodes

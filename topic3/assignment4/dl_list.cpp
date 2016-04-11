@@ -248,6 +248,8 @@ void DLList::InsertTail(int new_tail)//this or some function before it is broken
         //the new node at the end of the list is saved as the new tail_
         tail_ -> set_next_node(head_);
         //makes the tail point at head_ because it is a circular linked list
+        head_ -> set_previous_node(tail_);
+        //makes the head's previous node the tail
         size_++;
         //the newly inserted tail increases the size of the list
     }

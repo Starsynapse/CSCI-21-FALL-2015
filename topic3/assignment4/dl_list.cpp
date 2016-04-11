@@ -18,7 +18,7 @@ DLList::~DLList()
     Clear();
 }
 
-void DLList::Insert(int new_node)
+void DLList::Insert(int new_node)//this causes segmentation faults
 {
     DLNode *temp = new DLNode(new_node);
     //creates temp node and makes it point at the new_node information
@@ -195,16 +195,37 @@ bool DLList::RemoveAllOccurence(int remove_node)
 
 void DLList::InsertHead(int new_head)
 {
-    DLNode *temp = new DLNode(new_head);
-    //creates temp node and makes it equal to the new_head information
-    temp -> set_next_node(head_);
-    //temp points to the next node "head_"
-    head_ -> set_previous_node(temp);
-    //head_ points to previous node temp
-    head_ = temp;
-    //head points to temp
-    size_++;
-    //increments the size of the list
+    if(head_ == NULL)
+    {
+        DLNode *temp = new DLNode(new_head);
+        //creates temp node and makes it equal to the new_head information
+        head_ = temp;
+        //makes head point to temp node making it the head
+        temp -> set_next_node(head_);
+        //temp points to the next node "head_"
+        head_ -> set_previous_node(temp);
+        //head_ points to previous node temp
+        size_++;
+        //increments the size of the list
+    }
+    
+    else
+    {
+        DLNode *temp = new DLNode(new_head);
+        //creates temp node and makes it equal to the new_head information
+        temp -> set_next_node(head_);
+        //temp points to the next node "head_"
+        head_ -> set_previous_node(temp);
+        //head_ points to previous node temp
+        head_ = temp;
+        //head points to temp
+        tail_ -> set_next_node(head_);
+        //makes the head node the next node to the tail
+        head_ -> set_previous_node(tail_);
+        //makes the tail the previous node to the head
+        size_++;
+        //increments the size of the list
+    }
     
     if(tail_ == NULL)
     {
@@ -235,14 +256,12 @@ void DLList::InsertTail(int new_tail)//this or some function before it is broken
     {
         DLNode *temp = new DLNode(new_tail);
         //creates temp node and makes it equal to the new_tail information
-        temp -> set_previous_node(tail_);
-        //makes the new tail point to the old tail making it the previous node
         tail_ = temp;
-        //makes tail_ point to the node temp is pointing to
-        tail_ -> set_next_node(head_);
-        //makes the tail point at null because that is what the tail does
-        head_ = tail_;
-        //sets head equal to tail
+        //makes tail point to the new head
+        tail_ -> set_next_node(temp);
+        //makes the tail node point to the new node
+        temp -> set_previous_node(tail_);
+        //makes the temp node point to the previous node tail
         size_++;
         //the added tail increases the node count
     }

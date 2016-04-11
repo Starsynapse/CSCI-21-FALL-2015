@@ -16,8 +16,10 @@ using namespace std;
 
 int main()
 {
-    SLList list;
-    list.Insert(23);
-    list.GetHead();
+    int head;
+    DLList list;
+    list.Insert(5);
+    head = list.GetHead();
+    cout << head;
     //fine be that way!
 }

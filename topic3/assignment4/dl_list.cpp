@@ -18,7 +18,7 @@ DLList::~DLList()
     Clear();
 }
 
-void DLList::Insert(int new_node)//this causes segmentation faults
+void DLList::Insert(int new_node)
 {
     DLNode *temp = new DLNode(new_node);
     //creates temp node and makes it point at the new_node information
@@ -273,18 +273,33 @@ void DLList::RemoveHead()
 {
     if(head_ != NULL)
     {
-        DLNode *temp = head_;
-        //creates temp node and makes it equal to the head_
-        head_ = head_ -> next_node();
-        //sets head_ equal to the next node
-        head_ -> set_previous_node(tail_);
-        //the node before head_ is tail_
-        delete temp;
-        //delete what temp is pointing to
-        temp = NULL;
-        //makes temp point to NULL
-        size_--;
-        //decrements the size of the list
+        if(size_ > 1)
+        {
+            DLNode *temp = head_;
+            //creates temp node and makes it equal to the head_
+            head_ = head_ -> next_node();
+            //sets head_ equal to the next node
+            head_ -> set_previous_node(tail_);
+            //the node before head_ is tail_
+            tail_ -> set_next_node(head_);
+            //the node after tail is head
+            delete temp;
+            //delete what temp is pointing to
+            temp = NULL;
+            //makes temp point to NULL
+            size_--;
+            //decrements the size of the list
+        }
+        
+        else if(size_ == 1)
+        {
+            delete head_;
+            //delete what head is pointing to
+            head_ = NULL;
+            //makes temp point to NULL
+            size_--;
+            //decrements the size of the list
+        }
     }
     
     if(head_ == NULL)

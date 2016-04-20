@@ -1,18 +1,14 @@
 #creates the executable from both the object files
-assign4test: Driver.o dl_node.o dl_list.o
-	g++ -Wall -g -o assign4test dl_node.o dl_list.o Driver.o
+lab12test: lab_21_unit_test.o bst_node.o
+	g++ -Wall -g -o lab21test bst_node.o lab_21_unit_test.o
 	
-#creates the lab18 object file
-dl_list: dl_list.cpp dl_list.h
-	g++ -Wall -g -c dl_list.cpp
+#creates the bst_node object file
+bst_node: bst_node.cpp bst_node.h
+	g++ -Wall -g -c bst_node.cpp
 	
-#creates the lab18 object file
-dl_node: dl_node.cpp dl_node.h
-	g++ -Wall -g -c dl_node.cpp
-	
-#creates the Driver object file
-Driver: Driver.cpp
-	g++ -Wall -g -c Driver.cpp
+#creates the unit test object file
+lab_21_unit_test: lab_21_unit_test.cpp
+	g++ -Wall -g -c lab_21_unit_test.cpp
 	
 #cleans up old .o files	
 clean:

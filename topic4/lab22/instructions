@@ -8,10 +8,12 @@ Class Name: BSTree
 Private Members: 
  
   bool Insert(int, BSTNode*&) 
-  --creates a new BSTNode, inserts it into the tree, and returns true     if the integer is already in the tree, does not insert, and returns false 
+  --creates a new BSTNode, inserts it into the tree, and returns true     
+  if the integer is already in the tree, does not insert, and returns false 
    
   void Clear(BSTNode*&) 
-  --clears the entire contents of the tree,     freeing all memory associated with all nodes 
+  --clears the entire contents of the tree,     
+  freeing all memory associated with all nodes 
    
   string InOrder(BSTNode*) 
   --creates a string of the data in all nodes in the tree, in ascending order  

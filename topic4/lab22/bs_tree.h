@@ -8,21 +8,22 @@
 #define LAB_H2
 
 #include <iostream>
+#include <sstream>
 #include "bst_node.h"
 using namespace std;
 
 class BSTree
 {
   private:
-    bool Insert(int contents, BSTNode*& new_node);
+    bool Insert(int contents, BSTNode*& iterator_node);
     //creates a new BSTNode, inserts it into the tree, and returns true     
     //if the integer is already in the tree, does not insert, and returns false 
     
-    void Clear(BSTNode*&);
+    void Clear(BSTNode*& iterator_node);
     //clears the entire contents of the tree,     
     //freeing all memory associated with all nodes 
     
-    string InOrder(BSTNode*);
+    string InOrder(BSTNode* iterator_node);
     //creates a string of the data in all nodes in the tree, in ascending order  
     //separate by spaces (there should be a space after the last output value) 
     

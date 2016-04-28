@@ -38,7 +38,17 @@ bool BSTree::Insert(int contents, BSTNode*& iterator_node)
 }
 
 void BSTree::Clear(BSTNode*& iterator_node)
-{/*
+{
+    if(iterator_node != NULL)
+    {
+        Clear(iterator_node -> left_child());
+        Clear(iterator_node -> right_child());
+        delete iterator_node;
+        iterator_node = NULL;
+        size_--;
+    }
+
+/*
     if((iterator_node -> left_child()) == NULL && (iterator_node -> right_child()) == NULL)
     {
         delete iterator_node;
@@ -46,7 +56,7 @@ void BSTree::Clear(BSTNode*& iterator_node)
         iterator_node = NULL;
         //makes temp point to NULL
         size_--;
-        //the size of the tree has decreased
+        //the size of the tree has decreased 
     }
     
     else if((iterator_node -> left_child()) != NULL)
@@ -68,17 +78,14 @@ string BSTree::InOrder(BSTNode* iterator_node)
         output << "";
         return output.str();
     }
-    /*
-    else if((iterator_node -> left_child()) != NULL)
+    
+    else
     {
         output << InOrder(iterator_node -> left_child());
-    }
-    
-    else if((iterator_node -> right_child()) != NULL)
-    {
+        output << iterator_node -> contents() << " ";
         output << InOrder(iterator_node -> right_child());
-    }*/
-    return output.str();
+        return output.str();
+    }
 }
 
 BSTree::BSTree()
@@ -109,5 +116,5 @@ unsigned int BSTree::size() const
 
 string BSTree::InOrder()
 {
-    InOrder(root_);
+    return InOrder(root_);
 }

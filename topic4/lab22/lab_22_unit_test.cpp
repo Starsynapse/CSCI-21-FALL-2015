@@ -94,15 +94,15 @@ TEST_CASE("Default Constructor for BSTree") {
   SECTION("InOrder() on an Empty Tree") {
     CHECK(tree.InOrder() == "");
   }
-/*
+
   SECTION("Clear() on an Empty Tree") {
     tree.Clear();
     CHECK(tree.size() == 0);
     CHECK(tree.InOrder() == "");
-  }*/
+  }
 }
 
-TEST_CASE("Building a Tree") {/*
+TEST_CASE("Building a Tree") {
   BSTree tree;
   bool return_bool = false;
   return_bool = tree.Insert(50);
@@ -111,7 +111,7 @@ TEST_CASE("Building a Tree") {/*
     CHECK(tree.size() == 1);
     //CHECK(tree.InOrder() == "50 ");
   }
-/*
+
   return_bool = false;
   return_bool = tree.Insert(20);
   SECTION("Insert(20) (the left child)") {
@@ -199,5 +199,5 @@ TEST_CASE("Building a Tree") {/*
     CHECK(tree.Insert(34) == false);
     CHECK(tree.size() == 9);
     CHECK(tree.InOrder() == "25 29 30 31 32 33 34 50 75 ");
-  }*/
+  }
 }

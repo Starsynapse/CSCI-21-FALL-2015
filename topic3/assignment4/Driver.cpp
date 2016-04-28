@@ -26,6 +26,7 @@ int main()
     ifstream inStream;
     inStream.open("a3input.txt");
     
+    inStream >> number_of_kids;
     
     for(int i = 0; i < number_of_kids; i++)
     {

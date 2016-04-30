@@ -88,8 +88,42 @@ bool BSTree::Remove(int contents, BSTNode*& iterator_node)
     
     else if((iterator_node -> contents()) == contents)
     {
+        /*v3
+        BSTNode *temp_left = new BSTNode();
+        BSTNode *temp_right = new BSTNode();
+        
+        temp_left = iterator_node -> left_child();
+        temp_right = iterator_node -> right_child();
+        
+        delete iterator_node;
+        iterator_node = NULL;
+        
+        if(temp_right != NULL)
+        {
+            int min = FindMin(temp_right);
+            Remove(min, temp_right);
+            iterator_node -> set_contents(min);
+        }
+        
+        return true;
+        */
+        
+        
+        /*v2
+        int min = FindMin(iterator_node -> right_child());
+        
+        Remove(min, iterator_node);
+        
+        if(min == 0)
+        {
+            iterator_node = NULL;
+        }
+        */
+        
+        
+        //v1
         iterator_node -> set_contents(FindMin(iterator_node -> right_child()));
-        //returns the next smallest number in the tree
+        //returns the next smallest number, greater than the number we are deleting, in the tree
         
         if((iterator_node -> contents()) == 0)
         {

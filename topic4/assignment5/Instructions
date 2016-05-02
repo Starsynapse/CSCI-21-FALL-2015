@@ -1,0 +1,59 @@
+Assignment Program #5: BSTree 
+OBJECTIVES: 
+At the end of this assignment students will  
+• Use a BSTree 
+
+PROBLEM STATEMENT 
+Update the BSTree code that you have to read in data from an input file and create and traverse the Binary Search Tree.  Your driver will accept a file specified by the user (argv), and produces output based on the following operations in a text file: 
+•	Any line of the file that starts with a # is a comment – ignore 
+•	Create tree: C 
+•	Clear tree: X 
+•	Delete tree: D 
+•	Insert word: I word 
+•	Find word: F word 
+•	Remove word: R word 
+•	Get word: G word 
+•	Show number of nodes in the tree: N 
+•	In-order print: O 
+•	Reverse in-order print: E 
+
+PSEUDOCODE 
+Submit and get pseudocode approved for the driver software (what runs your game) before coding it.  You do NOT need to submit pseudocode for the linked list code. 
+
+SUBMIT 
+•	A driver  o Takes input file specified by the user (argv) 
+o	Pointer to the binary search tree to be used to create instances, work with instances, and destroy instances 
+o	Helper functions as needed to input file, process the input file, execute the commands received from the input file, and produces output. 
+•	Word class containing the following members and functions (used by the driver) o word – string contain the word assigned to the Word instance 
+o	count – an unsigned int (defaults to 1) containing the count of the number of instances the “word” was encountered in the input 
+o	default constructor 
+o	overloaded constructor, with string parameter (representing the “word”) o destructor o gets and sets  
+•	Binary search tree node with the following:  NOTE: This is a template class 
+ooooo      data  - a template data typeleft child – a pointer to another search tree noderight child – a pointer to another search tree nodeoverloaded constructor – NULLs out both pointers, assigns value to datadestructorgets and sets as appropriate 	  	  	 o
+•	Binary search tree with the following 
+o	root – points to a binary search tree node (do NOT implement public get or set functions for this member) 
+	oooo    size – unsigned intdefault constructor – set root pointer to NULL and node count to zerodestructor – use to clear to free all memorygets and sets as appropriate 	 	 	 
+
+GRADING – 20 POINTS 
+ 	Excellent (100%) 	Satisfactory (80%) 	Satisfactory (60%) 	Unsatisfactory (0%)
+Requirements
+(7 points) 	 Program meets and exceeds the requirements OR is extremely efficient.  Program has no coding, semantic or syntax errors. (7 points) 	Program meets the major requirements.  May have errors that do not effect program output. (5 – 6 points) 
+ 	Program meets one major requirement or has significant errors that effect program output. (3 – 4 points) 	The program is producing incorrect results at all times.  (0 – 2 points) 
+Readability (5 points) 	 The code is exceptionally well organized and very easy to follow.  Documentation clearly explains what the code is accomplishing and how.  Documentation is completed before the program is written (submitted before program submittal). ALL class coding conventions are followed. (5 points) 	The code is organized and easy to follow. Documentation is complete and follows class coding conventions.  
+(4 points) 	The code is readable.  The 
+ documentation 
+consists of embedded comments and some simple header documentation.  Most coding conventions are followed.  (3 points) 	The code is difficult to read.  The documentation is simple embedded comments (or missing) and does not help the reader understand the code.  Coding conventions are not followed. (0 – 2 points) 
+Current Tasking (5 points) 	Program uses current topic as appropriate.  (5 points) 	Program uses major elements of the current tasking appropriately. 
+(4 points) 	Program uses current topic but it may not be used correctly. (3 -  4 points) 	Program does not use the current topic 
+appropriately.  ( 0 –
+2 points) 
+Self 
+Assessment 
+(3 points) 	Self Assessment is completed demonstrating insight into what you have done and how the topic works. (3 points) 	Self assessment is complete.  (2 points) 	Self Assessment is partially complete (at least 50%). (1 point) 	Self Assessment is not completed. (0 points) 
+ 
+Your functions will evaluated against the UNIT TEST for this project and your driver using an input file. 
+SUBMISSION: 
+Post your all of your files as a zip folder to Blackboard (you will have to copy and paste your Cloud 9 code into a text editor on your desktop). 
+•	Assignment_4.h 
+•	Assignment_4.cpp 
+Include a link to your Cloud9 IDE workspace AND a link to your GitHub repository. 

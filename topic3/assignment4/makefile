@@ -1,6 +1,6 @@
 #creates the executable from both the object files
-assign4test: Driver.o dl_node.o dl_list.o
-	g++ -Wall -g -o assign4test dl_node.o dl_list.o Driver.o
+assign4test: Driver.cpp dl_node.o dl_list.o
+	g++ -Wall -g -o assign4test dl_node.o dl_list.o Driver.cpp
 	
 #creates the lab18 object file
 dl_list: dl_list.cpp dl_list.h

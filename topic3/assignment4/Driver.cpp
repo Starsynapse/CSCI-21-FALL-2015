@@ -13,7 +13,7 @@
 //#include "dl_list.cpp"
 #include "dl_node.h"
 //#include "dl_node.cpp"
-#include "a3input.txt"
+//#include "a3input.txt"
 using namespace std;
 
 int main()

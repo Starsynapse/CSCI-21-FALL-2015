@@ -137,6 +137,45 @@ int InsertionSort(int the_array[], unsigned int size)
 int ShellSort(int the_array[], unsigned int size)
 {
     int passes = 0;
+    int gap = size / 2;
+    int array_i;
+    
+    while (gap > 0)
+    {
+        passes++;
+        
+        for(int i = gap; i < size; i++)
+        {
+            int temp = the_array[i];
+            array_i = i;
+            
+            cout << "gap " << gap << endl;
+            cout << "temp " << gap << endl;
+            cout << "array_i " << gap << endl;
+            
+            while((array_i >= gap) && (the_array[array_i - gap] > temp))
+            {
+                cout << "1one " << the_array[array_i] << endl;///////
+                cout << "1two " << the_array[array_i - gap] << endl;///////
+                the_array[array_i] = the_array[array_i - gap];
+                //cout << "2one " << the_array[array_i] << endl;///////
+                //cout << "2two " << the_array[array_i - gap] << endl;///////
+                array_i = array_i - gap;
+            }
+            
+            the_array[array_i] = temp;
+            cout << "2one " << the_array[array_i] << endl;//////
+            cout << "2two " << the_array[array_i + gap] << endl;///////
+            DisplayArray(the_array);
+        }
+        
+        gap = gap / 2;
+    }
+    
+    return passes;
+    
+    /*
+    int passes = 0;
     int h = size - 1;
     int iterator = 0;
     int increment = 0;
@@ -189,7 +228,7 @@ int ShellSort(int the_array[], unsigned int size)
         //cout << "passes " << passes << endl;////
     }
     
-    return passes;
+    return passes;*/
 }
 
 void SwapValues(int &value_1, int &value_2) {

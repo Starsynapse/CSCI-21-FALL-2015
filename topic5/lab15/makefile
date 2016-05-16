@@ -9,3 +9,7 @@ lab15: sorting.cpp sorting.h
 #creates the unit test object file
 lab_15_unit_test: lab_15_unit_test.cpp
 	g++ -Wall -g -c lab_15_unit_test.cpp
+	
+#cleans up old .o files	
+clean:
+	rm *.o *test 

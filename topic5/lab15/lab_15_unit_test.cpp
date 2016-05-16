@@ -269,7 +269,7 @@ bool CompareArrays(int array_one[], int array_two[], unsigned int size) {
       return false;
   return true;
 }
-
+/*
 void DisplayArray(int values[]) {
   if (GRADER) {
     for (unsigned int i = 0; i < 5; i++)
@@ -277,3 +277,4 @@ void DisplayArray(int values[]) {
     cout << endl;
   }
 }
+*/
